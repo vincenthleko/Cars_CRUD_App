@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+h2 {
+    color: #444;
+    margin-top: 30px;
+}
+
+.fetch-cars-button,
+.filter-nissans-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.fetch-cars-button:hover,
+.filter-nissans-button:hover {
+    background-color: #0056b3;
+}
+
+.add-car-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-car-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.add-car-form input[type="text"],
+.add-car-form button {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-car-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-car-form button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nissan-cars-section {
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.added-car-info {
+    margin-top: 20px;
+    background-color: #d4edda;
+    padding: 15px;
+    border-left: 5px solid #28a745;
+    border-radius: 5px;
+}
+
+.added-car-info h4 {
+    margin-top: 0;
+}
+
+.added-car-info p {
+    margin: 5px 0;
+}
+
+#resultMessage {
+    margin-top: 20px;
+    color: #007bff;
+    font-weight: bold;
+}
+

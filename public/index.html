@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="nissanCKWidgets.js"></script>
+  </head>
+  <body>
+    <h1>Cars Widget</h1>
+    <div x-data="nissanCKWidgets" x-init="init()">
+      <h1>Show All Cars</h1>
+      <button @click="fetchCars()" class="fetch-cars-button">
+        Show All Cars
+      </button>
+      <button @click="hideCars()" class="fetch-cars-button">Hide Cars</button>
+
+      <div x-show="cars.length > 0 || error">
+        <template x-if="error">
+          <div class="error" x-text="error"></div>
+        </template>
+
+        <template x-if="cars.length > 0">
+          <ul>
+            <template x-for="car in cars" :key="car.reg_number">
+              <li
+                x-text="`${car.color} ${car.make} ${car.model} (Reg Number: ${car.reg_number})`"
+              ></li>
+            </template>
+          </ul>
+        </template>
+
+        <template x-if="cars.length === 0 && !error">
+          <div>No cars available.</div>
+        </template>
+      </div>
+
+      <h2>Nissan Cars Filtered from CK</h2>
+      <button @click="fetchFilteredNissans()" class="filter-nissans-button">
+        Filter Nissans from CK
+      </button>
+
+      <div x-show="filteredCount" class="nissan-cars-section">
+        <p x-text="filteredCount"></p>
+        <template x-if="filteredNissans.length > 0">
+          <ul>
+            <template x-for="car in filteredNissans" :key="car.reg_number">
+              <li
+                x-text="`${car.color} ${car.make} ${car.model} (Reg Number: ${car.reg_number})`"
+              ></li>
+            </template>
+          </ul>
+        </template>
+        <template x-if="filteredNissans.length === 0">
+          <div>
+            <p>No Nissan cars filtered from CK.</p>
+          </div>
+        </template>
+      </div>
+
+      <template x-if="error">
+        <div class="error-message">
+          <p x-text="error" style="color: red"></p>
+        </div>
+      </template>
+
+      <h2>Add a New Car</h2>
+
+      <form @submit.prevent="submitCar()" class="add-car-form">
+        <label for="color">Color:</label>
+        <input type="text" id="color" x-model="newCar.color" required />
+
+        <label for="make">Make:</label>
+        <input type="text" id="make" x-model="newCar.make" required />
+
+        <label for="model">Model:</label>
+        <input type="text" id="model" x-model="newCar.model" required />
+
+        <label for="reg_number">Registration Number:</label>
+        <input
+          type="text"
+          id="reg_number"
+          x-model="newCar.reg_number"
+          required
+        />
+
+        <button type="submit">Add Car</button>
+      </form>
+
+      <template x-if="addedCar">
+        <div class="added-car-info">
+          <h4>Added Car Details:</h4>
+          <p>Color: <span x-text="addedCar.color"></span></p>
+          <p>Make: <span x-text="addedCar.make"></span></p>
+          <p>Model: <span x-text="addedCar.model"></span></p>
+          <p>Registration Number: <span x-text="addedCar.reg_number"></span></p>
+        </div>
+      </template>
+
+      <h2>Delete Car Make</h2>
+      <form @submit.prevent="deleteCarMake">
+        <label for="carMake">Enter Car Make to Delete:</label>
+        <input
+          type="text"
+          x-model="carMake"
+          id="carMake"
+          name="carMake"
+          required
+        />
+        <button type="submit">Delete Car Make</button>
+      </form>
+      <div x-text="resultMessage"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+GET http://localhost:3001/api/cars HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:3001/api/filterNissansFromCK HTTP/1.1
+content-type: application/json
+
+###
+POST http://localhost:3001/api/add-car HTTP/1.1
+content-type: application/json
+
+{
+"color":"green",
+"make":"Honda",
+"model":"Civic",
+"reg_number":"CL 12345"
+}
+
+###
+DELETE http://localhost:3001/api/delete-car/Toyota HTTP/1.1
+content-type: application/json
