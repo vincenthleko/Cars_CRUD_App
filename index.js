@@ -3,7 +3,7 @@ import cors from "cors";
 import { cars, nissansFromCK } from "./nissansFromCK.js";
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -55,6 +55,6 @@ app.delete('/api/delete-car/:make', (req, res) => {
   res.send({ message: "Cars deleted successfully.", deletedCount });
 });
 
-app.listen(port, () => {
+app.listen(PORT, function() {
   console.log(`Example add listening on port ${port}!`);
 });
