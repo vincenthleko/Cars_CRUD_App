@@ -56,5 +56,5 @@ app.delete('/api/delete-car/:make', (req, res) => {
 });
 
 app.listen(PORT, function() {
-  console.log(`Example add listening on port ${port}!`);
+  console.log(`Example add listening on port ${PORT}!`);
 });
