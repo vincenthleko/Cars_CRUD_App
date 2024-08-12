@@ -63,7 +63,7 @@ document.addEventListener("alpine:init", () => {
       // Function to filter Nissan cars with CK reg numbers
       fetchFilteredNissans() {
         axios
-            .get("http://localhost:3001/api/filterNissansFromCK", {
+            .get(`http://localhost:3001/api/filterNissansFromCK`, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -74,7 +74,7 @@ document.addEventListener("alpine:init", () => {
     
                 console.log(`Filtered Nissans Count: ${this.filteredCount}`);
     
-                return axios.get("http://localhost:3001/api/cars", {
+                return axios.get(`http://localhost:3001/api/cars`, {
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -114,7 +114,7 @@ document.addEventListener("alpine:init", () => {
       // Function to add a new car
       addCar(newCar) {
           axios
-              .post("http://localhost:3001/api/add-car", newCar, {
+              .post(`http://localhost:3001/api/add-car`, newCar, {
                   headers: {
                       "Content-Type": "application/json",
                   },
