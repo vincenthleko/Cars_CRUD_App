@@ -17,7 +17,7 @@ document.addEventListener("alpine:init", () => {
       // Function to fetch cars
       fetchCars() {
           axios
-              .get(`http://localhost:3001/api/cars`, {
+              .get(`/api/cars`, {
                   headers: {
                       "Content-Type": "application/json",
                   },
@@ -63,7 +63,7 @@ document.addEventListener("alpine:init", () => {
       // Function to filter Nissan cars with CK reg numbers
       fetchFilteredNissans() {
         axios
-            .get(`http://localhost:3001/api/filterNissansFromCK`, {
+            .get(`/api/filterNissansFromCK`, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -114,7 +114,7 @@ document.addEventListener("alpine:init", () => {
       // Function to add a new car
       addCar(newCar) {
           axios
-              .post(`http://localhost:3001/api/add-car`, newCar, {
+              .post(`/api/add-car`, newCar, {
                   headers: {
                       "Content-Type": "application/json",
                   },
@@ -150,7 +150,7 @@ document.addEventListener("alpine:init", () => {
 
       // Function to delete a car make
       deleteCarMake() {
-          const url = `http://localhost:3001/api/delete-car/${this.carMake}`;
+          const url = `/api/delete-car/${this.carMake}`;
           
           axios.delete(url, {
               headers: {
